@@ -91,13 +91,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be84e4d7829855419c06b94e56bd135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAmmo: 5
+  maxAmmo: 10
   bulletPrefab: {fileID: 6804990658058999119, guid: 65c9f6563c561ee4e8905d1e6a32548b, type: 3}
   casingPrefab: {fileID: 4362657251999731927, guid: 4cb20e8abae957146a8b78e670d3fe74, type: 3}
   muzzleFlashPrefab: {fileID: 1782395880954752, guid: 3dd9cf2e209c504448f1c4c6835675cf, type: 3}
   gunAnimator: {fileID: 4552356144310477306}
   barrelLocation: {fileID: 2865007814677201378}
   casingExitLocation: {fileID: 6770146545802020271}
+  GunShotSound: {fileID: 0}
+  ReloadSound: {fileID: 0}
+  ammoCanvas: {fileID: 0}
+  ammoText: {fileID: 0}
+  ammoDisplayPosition: {fileID: 0}
+  ammoDisplayScale: 0.01
+  alwaysFacePlayer: 1
+  Ammotextsize: 2
   destroyTimer: 2
   shotPower: 700
   ejectPower: 250
