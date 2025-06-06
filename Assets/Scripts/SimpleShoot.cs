@@ -165,9 +165,9 @@ public class SimpleShoot : MonoBehaviour
     //This function call updates the ammo display.
     void UpdateAmmoDisplay()
     {
-        if (ammoText != null && !isFlashing)
+        if (ammoText != null && !isFlashing)//This check is helpful for public var/serialised var.
         {
-            ammoText.text = currentAmmo.ToString();
+            ammoText.text = currentAmmo.ToString();//or can use $Ammo:"(currentAmmo)";
 
             // Change color based on ammo level
             if (currentAmmo == 0)
