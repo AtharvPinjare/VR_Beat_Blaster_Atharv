@@ -48,7 +48,7 @@ public class SimpleShoot : MonoBehaviour
     [Tooltip("What layers can bullets hit")][SerializeField] private LayerMask bulletHitLayers = -1;
     [Tooltip("Maximum bullet range")][SerializeField] private float bulletRange = 100f;
     [Tooltip("Start offset from barrel")][SerializeField] private float barrelOffset = 0.5f;
-
+    public GameObject bullet_head;
     void Start()
     {
         if (barrelLocation == null)
@@ -216,10 +216,6 @@ public class SimpleShoot : MonoBehaviour
         UpdateAmmoDisplay(); // Ensure display is correct after flashing
     }
 
-    /// <summary>
-    /// Write A Player Movement Script which will disable movement through wasd and 
-    /// only allow player movement through z direction.
-    /// </summary>
 
 
     //This function creates the bullet behavior
@@ -234,8 +230,11 @@ public class SimpleShoot : MonoBehaviour
 
 
         // Create and fire the bullet
-        Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
+        GameObject tempBullet = Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation);
+        tempBullet.GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
+
         SoundManager.Instance.PlaySoundOnce(GunShotSound);
+
 
         if (muzzleFlashPrefab)
         {
@@ -246,10 +245,12 @@ public class SimpleShoot : MonoBehaviour
             //Destroy the muzzle flash effect
             Destroy(tempFlash, destroyTimer);
         }
+            
 
-        // Create tracer line effect dynamically
-        CreateTracerLine();
+    // Create tracer line effect dynamically
+    CreateTracerLine();
     }
+    
 
     void CreateTracerLine()
     {
